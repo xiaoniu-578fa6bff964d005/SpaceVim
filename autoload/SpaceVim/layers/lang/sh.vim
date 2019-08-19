@@ -25,6 +25,8 @@ function! SpaceVim#layers#lang#sh#plugins() abort
   call add(l:plugins, ['dag/vim-fish', { 'merged' : 0 }])
   if get(g:, 'spacevim_enable_ycm') == 1
     call add(l:plugins, ['Valodim/vim-zsh-completion', { 'on_ft' : 'zsh' }])
+  elseif get(g:, 'spacevim_enable_tabnine') == 1
+    call add(l:plugins, ['Valodim/vim-zsh-completion', { 'on_ft' : 'zsh' }])
   else
     call add(l:plugins, ['zchee/deoplete-zsh', { 'on_ft' : 'zsh' }])
   endif

@@ -63,6 +63,8 @@ function! SpaceVim#layers#autocomplete#plugins() abort
   endif
   if g:spacevim_autocomplete_method ==# 'ycm'
     call add(plugins, ['Valloric/YouCompleteMe',            { 'loadconf_before' : 1, 'merged' : 0}])
+  elseif g:spacevim_autocomplete_method ==# 'tabnine'
+    call add(plugins, ['zxqfl/tabnine-vim',                 { 'loadconf_before' : 1, 'merged' : 0}])
   elseif g:spacevim_autocomplete_method ==# 'neocomplete'
     call add(plugins, [g:_spacevim_root_dir . 'bundle/neocomplete.vim', {
           \ 'on_event' : 'InsertEnter',

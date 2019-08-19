@@ -385,6 +385,21 @@ let g:spacevim_guifont                 = ''
 let g:spacevim_enable_ycm              = 0
 
 ""
+" @section enable_tabnine, options-enable_tabnine
+" @parentsection options
+" Enable/Disable tabnine-vim. Default is false.
+" >
+"   enable_tabnine = true
+" <
+
+""
+" Enable/Disable YouCompleteMe. Default is 0.
+" >
+"   let g:spacevim_enable_tabnine = 1
+" <
+let g:spacevim_enable_tabnine              = 0
+
+""
 " @section sidebar_width, options-sidebar_width
 " @parentsection options
 " Set the width of the SpaceVim sidebar. Default is 30.
@@ -1320,6 +1335,13 @@ function! SpaceVim#end() abort
       let g:spacevim_autocomplete_method = 'ycm'
     else
       call SpaceVim#logger#warn('YCM need +python or +python3 support, force to using ' . g:spacevim_autocomplete_method)
+    endif
+  endif
+  if g:spacevim_enable_tabnine
+    if has('python') || has('python3')
+      let g:spacevim_autocomplete_method = 'tabnine'
+    else
+      call SpaceVim#logger#warn('YCM which tabnine-vim is based on need +python or +python3 support, force to using ' . g:spacevim_autocomplete_method)
     endif
   endif
   if g:spacevim_keep_server_alive

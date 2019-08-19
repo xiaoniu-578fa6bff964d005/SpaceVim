@@ -224,6 +224,10 @@ function! SpaceVim#custom#load() abort
     call SpaceVim#logger#info('YCM only support ultisnips, change g:spacevim_snippet_engine to ultisnips')
     let g:spacevim_snippet_engine = 'ultisnips'
   endif
+  if g:spacevim_enable_tabnine && g:spacevim_snippet_engine !=# 'ultisnips'
+    call SpaceVim#logger#info('YCM which tabnine-vim is based on only support ultisnips, change g:spacevim_snippet_engine to ultisnips')
+    let g:spacevim_snippet_engine = 'ultisnips'
+  endif
 endfunction
 
 
